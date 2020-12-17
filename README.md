@@ -22,13 +22,13 @@
 
 ## Try it
 
-<https://bestia.dev/rust_wasm_helper_for_pwa/>
-The result of this helper (a minimal PWA) looks like this:
+<https://bestia.dev/rust_wasm_helper_for_pwa/>  
+The result of this helper (a minimal PWA) looks like this:  
 <https://bestia.dev/pwa_test/>
 
 ## minimal PWA
 
-There are just a few steps to convert a standard web page into a PWA.  
+There are just a few steps to convert a standard web page into a [PWA (progressive web application)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).  
 A few lines inside index.html, a few files and a bunch of icons.  
 This helper creates a zip with all this files.  
 If you publish this files on a web server with https, it will work as a complete, but minimal PWA.
@@ -54,17 +54,14 @@ Let see where it takes us.
 PWA does not have access to local files.  
 After typing in some basic info, the next step is to `select` the original big png file manually.  
 
-## resize the png
+## resize the png, zip
 
-The crate [image](https://crates.io/crates/image) decodes, resizes and encodes the png file.
-
-## zip
-
+The crate [image](https://crates.io/crates/image) decodes, resizes and encodes the png file.  
 The crate [zip](https://crates.io/crates/zip) adds all files in one single zip file for easy downloading
 
 ## download
 
-The newly created zip is then available to download from the browse. It is still data inside the browser. 
+The newly created zip is then available to download from the browse. All data is still only inside the browser.  
 After unzipping, copy the files to the web server folder.
 
 ## Conclusion
