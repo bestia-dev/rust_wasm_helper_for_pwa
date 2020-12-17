@@ -26,6 +26,7 @@
 The result of this helper (a minimal PWA) looks like this:  
 <https://bestia.dev/pwa_test/>
 
+![screenshot](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/blob/main/images/helper_for_pwa.jpg?raw=true)
 ## minimal PWA
 
 There are just a few steps to convert a standard web page into a [PWA (progressive web application)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).  
