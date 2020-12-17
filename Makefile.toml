@@ -1,4 +1,4 @@
-# rust_wasm_png_resize_for_pwa/Makefile.toml
+# rust_wasm_helper_for_pwa/Makefile.toml
 # https://github.com/sagiegurari/cargo-make/blob/master/src/lib/Makefile.stable.toml
 
 [config]
@@ -15,7 +15,7 @@ script= [
 "echo    $ cargo make - list of common commands for task automation",
 "echo    $ cargo make release - increment version in Cargo.toml and service_worker.js, build release version and copy pkg to web content folder",
 "echo be sure to run 'basic-http-server' inside the folder '/web_server_folder'",
-"echo open or reload your browser on 'http://127.0.0.1:4000/rust_wasm_png_resize_for_pwa/' to run the web app",
+"echo open or reload your browser on 'http://127.0.0.1:4000/rust_wasm_helper_for_pwa/' to run the web app",
 "echo    $ cargo make publish_to_web - automation for publish",
 "echo "
 ]
@@ -35,9 +35,9 @@ script = [
     "cargo fmt",
     "echo $ wasm-pack build --target web --release",
     "wasm-pack build --target web --release",
-    "echo $ \\rsync -a --delete-after pkg/ web_server_folder/rust_wasm_png_resize_for_pwa/pkg/",
-    "\\rsync -a --delete-after pkg/ web_server_folder/rust_wasm_png_resize_for_pwa/pkg/",
-    "echo Finished: Now open or reload the web app in your browser 'http://127.0.0.1:4000/rust_wasm_png_resize_for_pwa/'"
+    "echo $ \\rsync -a --delete-after pkg/ web_server_folder/rust_wasm_helper_for_pwa/pkg/",
+    "\\rsync -a --delete-after pkg/ web_server_folder/rust_wasm_helper_for_pwa/pkg/",
+    "echo Finished: Now open or reload the web app in your browser 'http://127.0.0.1:4000/rust_wasm_helper_for_pwa/'"
 ]		
 
 [tasks.publish_to_web]
@@ -50,8 +50,8 @@ script = [
     "echo ",
     "echo $ git tag -f -a v${CARGO_MAKE_CRATE_VERSION} -m version_${CARGO_MAKE_CRATE_VERSION}",
     "git tag -f -a v${CARGO_MAKE_CRATE_VERSION} -m version_${CARGO_MAKE_CRATE_VERSION}",
-    "echo $ rsync -a --info=progress2 --delete-after ~/rustprojects/rust_wasm_png_resize_for_pwa/web_server_folder/rust_wasm_png_resize_for_pwa/ ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_png_resize_for_pwa/",
-    "rsync -a --info=progress2 --delete-after ~/rustprojects/rust_wasm_png_resize_for_pwa/web_server_folder/rust_wasm_png_resize_for_pwa/ ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_png_resize_for_pwa/",
-    "echo $ rsync -e ssh -a --info=progress2 --delete-after ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_png_resize_for_pwa/ luciano_bestia@bestia.dev:/var/www/bestia.dev/rust_wasm_png_resize_for_pwa/",
-    "rsync -e ssh -a --info=progress2 --delete-after ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_png_resize_for_pwa/ luciano_bestia@bestia.dev:/var/www/bestia.dev/rust_wasm_png_resize_for_pwa/",
+    "echo $ rsync -a --info=progress2 --delete-after ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/rust_wasm_helper_for_pwa/ ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
+    "rsync -a --info=progress2 --delete-after ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/rust_wasm_helper_for_pwa/ ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
+    "echo $ rsync -e ssh -a --info=progress2 --delete-after ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/ luciano_bestia@bestia.dev:/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
+    "rsync -e ssh -a --info=progress2 --delete-after ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/ luciano_bestia@bestia.dev:/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
 ]

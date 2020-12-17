@@ -19,7 +19,7 @@ pub fn wasm_bindgen_start() -> Result<(), JsValue> {
     console_error_panic_hook::set_once();
     // write the app version just for debug purposes
     debug_write(&format!(
-        "rust_wasm_png_resize_for_pwa v{}",
+        "rust_wasm_helper_for_pwa v{}",
         env!("CARGO_PKG_VERSION")
     ));
     // set the window initial size
@@ -342,7 +342,7 @@ pub fn on_file_change(array: js_sys::Uint8Array) {
     add_start_service_worker_js_to_zip(&mut zip, &now, &pwa_data.pwa_folder);
 
     let url = finish_zip(&mut zip);
-    append_anchor_for_zip_file(&url, "pwa_icons.zip");
+    append_anchor_for_zip_file(&url, "pwa_minimal_files.zip");
     append_final_comment();
 }
 
@@ -575,7 +575,14 @@ pub fn add_service_worker_js_to_zip(
         .last_modified_time(*now);
     unwrap!(zip.start_file(&format!("{}/service_worker.js", pwa_folder), options));
     use std::io::Write;
-    let version_from_date=format!("{}.{}{:02}.{}{:02}",now.year(),now.month(),now.day(),now.hour(),now.minute());
+    let version_from_date = format!(
+        "{}.{}{:02}.{}{:02}",
+        now.year(),
+        now.month(),
+        now.day(),
+        now.hour(),
+        now.minute()
+    );
     unwrap!(zip.write(
         format!(r##"{{
             'use strict';

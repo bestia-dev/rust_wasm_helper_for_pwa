@@ -6,7 +6,7 @@
 // but the new service worker will not be activated until all 
 //tabs with this webapp are closed.
 
-const CACHE_NAME = '2020.1217.1220';
+const CACHE_NAME = '2020.1217.1257';
 
 self.addEventListener('install', event => {
     console.log('event install ', CACHE_NAME);
@@ -17,9 +17,9 @@ self.addEventListener('install', event => {
         caches.open(CACHE_NAME).then(function (cache) {
             return cache.addAll(
                 [
-                    'css/rust_wasm_png_resize_for_pwa.css',
-                    'pkg/rust_wasm_png_resize_for_pwa_bg.wasm',
-                    'pkg/rust_wasm_png_resize_for_pwa.js',
+                    'css/rust_wasm_helper_for_pwa.css',
+                    'pkg/rust_wasm_helper_for_pwa_bg.wasm',
+                    'pkg/rust_wasm_helper_for_pwa.js',
                 ]
             );
         })

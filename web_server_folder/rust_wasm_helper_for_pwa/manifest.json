@@ -1,6 +1,6 @@
 {
     "short_name": "clock",
-    "name": "rust_wasm_png_resize_for_pwa",
+    "name": "rust_wasm_helper_for_pwa",
     "icons": [
         {
             "src": "icons/android-icon-36x36.png",
@@ -44,7 +44,7 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": "/rust_wasm_png_resize_for_pwa/index.html",
+    "start_url": "/rust_wasm_helper_for_pwa/index.html",
     "background_color": "#000000",
     "display": "standalone",
     "orientation": "portrait",
