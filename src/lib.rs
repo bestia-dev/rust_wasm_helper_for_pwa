@@ -23,7 +23,7 @@ pub fn wasm_bindgen_start() -> Result<(), JsValue> {
         env!("CARGO_PKG_VERSION")
     ));
     // set the window initial size
-    unwrap!(window().resize_to(800, 500));
+    unwrap!(window().resize_to(800, 600));
     // load from local storage
     let data = load_all_from_local_storage();
 
