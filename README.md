@@ -68,9 +68,9 @@ After unzipping, copy the files to the web server folder.
 ## Conclusion
 
 The wasm file is 1,1Mb. I mean it is not bad if you think that it includes the image and zip libraries. Maybe this 2 libraries could be smaller? Or maybe more selective what to include? I use a very small part of them. I don't know. For now it is good enough.  
-Doing things in wasm is complicated because of the conversion between javascript objects and rust objects. There is so much to learn about all this conversions: js_sys::Uint8Array, web_sys::Element, HtmlElement, HtmlInputElement, HtmlAnchorElement, Blob, File, FileList, FileReader,...
+Doing things in wasm is complicated because of the conversion between javascript objects and rust objects. There is so much to learn about all this conversions: js_sys::Uint8Array, web_sys::Element, HtmlElement, HtmlInputElement, HtmlAnchorElement, Blob, File, FileList, FileReader,... It is better to isolate/hide this non-Rust code into a dedicated module.  
 
-In cargo.toml is important to add features to [dependencies.web-sys] whenever we need some new types from web_sys. That is not comfortable. Could be better with some special extension of VSCode?
+In cargo.toml is important to add features to [dependencies.web-sys] whenever we need some new types from web_sys. That is not comfortable. Could be better with some special extension for VSCode?
 
 Another difficulty was how to reserve a big memory space for the zip.
 First I tried with an array [0u8; 65_536]. It was too small. But the maximum size I could use was 524_288. I suppose arrays are on the stack and it is limited.
