@@ -222,6 +222,14 @@ pub fn on_file_change(vec: Vec<u8>) {
         &now,
         &pwa_data.pwa_folder,
     );
+    resize_img_and_add_to_zip(
+        &mut zip,
+        &img,
+        192,
+        "maskable_icon.png",
+        &now,
+        &pwa_data.pwa_folder,
+    );
 
     resize_img_and_add_to_zip(
         &mut zip,
@@ -407,6 +415,13 @@ pub fn add_manifest_json_to_zip(
             "src": "icons/icons-512.png",
             "type": "image/png",
             "sizes": "512x512"
+        }},
+        {{
+            "src": "icons/maskable_icon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "density": "4.0",
+            "purpose": "any maskable"
         }}
     ],
     "start_url": "/{}/index.html",

@@ -1,6 +1,6 @@
 [package]
 name = "rust_wasm_helper_for_pwa"
-version = "2020.1222.2014"
+version = "2021.517.1122"
 authors = ["Luciano Bestia <Luciano.Bestia@gmail.com>"]
 edition = "2018"
 description = "creates a minimal PWA you can copy to your project"

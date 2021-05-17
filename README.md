@@ -5,12 +5,12 @@
 [comment]: # (lmake_cargo_toml_to_md start)
 
 **creates a minimal PWA you can copy to your project**  
-***[repo](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa_game); version: 2020.1222.2014  date: 2020-12-22 authors: Luciano Bestia***  
+***[repo](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa_game); version: 2021.517.1122  date: 2021-05-17 authors: Luciano Bestia***  
 
 [comment]: # (lmake_cargo_toml_to_md end)
 
 [comment]: # (lmake_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-793-green.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-808-green.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
 [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-41-blue.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
 [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-65-purple.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
