@@ -420,7 +420,7 @@ dependencies = [
 
 [[package]]
 name = "rust_wasm_helper_for_pwa"
-version = "2021.704.1351"
+version = "2021.704.1429"
 dependencies = [
  "console_error_panic_hook",
  "ico",

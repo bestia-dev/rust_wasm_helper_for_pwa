@@ -99,8 +99,8 @@ pub fn on_file_change(vec: Vec<u8>) {
     let mut buf = &mut vec![0u8; 2_097_152];
     let mut zip = create_new_zip(&mut buf);
 
-    // favicon.ico with 16 and 32 icons
-    encode_to_favicon_ico_and_add_to_zip(&mut zip, &img, &now);
+    // favicon.ico with 16, 32 and 48 icons
+    encode_to_favicon_ico_and_add_to_zip(&mut zip, &img, &now, &pwa_data.pwa_folder);
 
     // png with various sizes for: favicon png, pwa Android and pwa iOS
     // 32, 72, 96, 120, 128, 144, 152, 167, 180, 192, 196, 512
@@ -604,6 +604,7 @@ pub fn encode_to_favicon_ico_and_add_to_zip(
     zip: &mut zip::ZipWriter<std::io::Cursor<&mut [u8]>>,
     img: &image::DynamicImage,
     now: &zip::DateTime,
+    pwa_folder: &str,
 ) {
     // Create a new, empty icon collection:
     let mut icon_dir = ico::IconDir::new(ico::ResourceType::Icon);
@@ -615,7 +616,7 @@ pub fn encode_to_favicon_ico_and_add_to_zip(
     let options = zip::write::FileOptions::default()
         .compression_method(zip::CompressionMethod::Stored)
         .last_modified_time(*now);
-    unwrap!(zip.start_file("pwa_folder/favicon.ico", options));
+    unwrap!(zip.start_file(&format!("{}/favicon.ico", pwa_folder,), options));
     unwrap!(icon_dir.write(zip));
 }
 
