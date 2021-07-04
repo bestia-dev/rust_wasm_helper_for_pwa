@@ -5,14 +5,14 @@
 [comment]: # (lmake_cargo_toml_to_md start)
 
 **creates a minimal PWA you can copy to your project**  
-***[repo](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa_game); version: 2021.517.1122  date: 2021-05-17 authors: Luciano Bestia***  
+***[repo](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa_game); version: 2021.704.1257  date: 2021-07-04 authors: Luciano Bestia***  
 
 [comment]: # (lmake_cargo_toml_to_md end)
 
 [comment]: # (lmake_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-808-green.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-746-green.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
 [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-41-blue.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
-[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-65-purple.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
+[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-73-purple.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
 [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-0-orange.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
 
@@ -27,6 +27,7 @@ The result of this helper (a minimal PWA) looks like this:
 <https://bestia.dev/pwa_test/>
 
 ![screenshot](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/blob/main/images/helper_for_pwa.jpg?raw=true)
+
 ## minimal PWA
 
 There are just a few steps to convert a standard web page into a [PWA (progressive web application)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).  
@@ -41,12 +42,15 @@ And there are much too much resizing of the same image to do it manually.
 I think this is a nice candidate for an automation utility.  
 
 I will start with one png file at least 512x512 px. This helper will then make all other pngs with different sizes.  
-I will use the info I found as of today. Even so there are different names and implementations. This will probably change in the future. I will try to update it later.   
+I will use the info I found as of today. Even so there are different names and implementations. This will probably change in the future. I will try to update it later.  
+Android: 72, 96, 128, 144, 152, 192, 384, 512
+iOs: 120, 180
+and maskable 192
 
 ## not a CLI, let it be PWA
 
 But I don't want to make it a CLI, because it must be installed (be afraid of unknown programs), has complete access to all my system and it works only on one OS.  
-I want to make a PWA utility: trustworthy, no-problem installation, cross-platform. But the downside is that it must be run manually. I think it is not possible to call it from a shell script. This is not a problem because changing the app icon image is important and should be done in edit-time when the programmer is still conscious.   
+I want to make a PWA utility: trustworthy, no-problem installation, cross-platform. But the downside is that it must be run manually. I think it is not possible to call it from a shell script. This is not a problem because changing the app icon image is important and should be done in edit-time when the programmer is still conscious.  
 All the processing is done locally inside the browser. No server involved at all. No data is transferred to the server. Zero. Zilch. Nada.  
 Let see where it takes us.  
 
@@ -59,6 +63,40 @@ After typing in some basic info, the next step is to `select` the original big p
 
 The crate [image](https://crates.io/crates/image) decodes, resizes and encodes the png file.  
 The crate [zip](https://crates.io/crates/zip) adds all files in one single zip file for easy downloading
+
+## favicon.ico
+
+Favicon.ico is a dinosaur format, but still used on the web. I added the creation of the favicon.ico, just in case. <https://www.emergeinteractive.com/insights/detail/The-Essentials-of-FavIcons/>  
+Inside the favicon.ico, there must be a 16x16 and 32x32 png.  
+Then for other needs 7 pngs for favicons: 32, 128, 152, 167, 180, 192, 196.
+Place in the \<head\>:  
+
+```html
+<!-- generics -->
+<link rel="icon" href="icons/icon-032.png" sizes="32x32">
+<link rel="icon" href="icons/icon-128.png" sizes="128x128">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192">
+
+<!-- Android -->
+<link rel="shortcut icon" href="icons/icon-196.png" sizes="196x196">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="icons/icon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="icons/icon-152.png" sizes="167x167">
+<link rel="apple-touch-icon" href="icons/icon-180.png" sizes="180x180">
+
+```
+
+## altogether
+
+favicon.ico: 16, 32
+favicon png: 32, 128, 152, 167, 180, 192, 196
+pwa Android: 72, 96, 128, 144, 152, 192, 512
+pwa iOs: 120, 180
+pwa maskable 192
+
+together png ordered:
+32, 72, 96, 120, 128, 144, 152, 167, 180, 192, 196, 512
 
 ## download
 

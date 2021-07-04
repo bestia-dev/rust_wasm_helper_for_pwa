@@ -99,12 +99,24 @@ pub fn on_file_change(vec: Vec<u8>) {
     let mut buf = &mut vec![0u8; 2_097_152];
     let mut zip = create_new_zip(&mut buf);
 
-    // for manifest.json
+    // favicon.ico with 16 and 32 icons
+    // encode_to_favicon_ico_and_add_to_zip(&mut zip, &img, &now);
+
+    // png with various sizes for: favicon png, pwa Android and pwa iOS
+    // 32, 72, 96, 120, 128, 144, 152, 167, 180, 192, 196, 512
     resize_img_and_add_to_zip(
         &mut zip,
         &img,
-        144,
-        "android-icon-144x144.png",
+        32,
+        "icon-032.png",
+        &now,
+        &pwa_data.pwa_folder,
+    );
+    resize_img_and_add_to_zip(
+        &mut zip,
+        &img,
+        72,
+        "icon-072.png",
         &now,
         &pwa_data.pwa_folder,
     );
@@ -112,73 +124,7 @@ pub fn on_file_change(vec: Vec<u8>) {
         &mut zip,
         &img,
         96,
-        "android-icon-96x96.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        72,
-        "android-icon-72x72.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        48,
-        "android-icon-48x48.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        36,
-        "android-icon-36x36.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-
-    // for html header
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        57,
-        "apple-icon-57x57.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        60,
-        "apple-icon-60x60.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        72,
-        "apple-icon-72x72.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        76,
-        "apple-icon-76x76.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        114,
-        "apple-icon-114x114.png",
+        "icon-096.png",
         &now,
         &pwa_data.pwa_folder,
     );
@@ -186,7 +132,15 @@ pub fn on_file_change(vec: Vec<u8>) {
         &mut zip,
         &img,
         120,
-        "apple-icon-120x120.png",
+        "icon-120.png",
+        &now,
+        &pwa_data.pwa_folder,
+    );
+    resize_img_and_add_to_zip(
+        &mut zip,
+        &img,
+        128,
+        "icon-128.png",
         &now,
         &pwa_data.pwa_folder,
     );
@@ -194,7 +148,7 @@ pub fn on_file_change(vec: Vec<u8>) {
         &mut zip,
         &img,
         144,
-        "apple-icon-144x144.png",
+        "icon-144.png",
         &now,
         &pwa_data.pwa_folder,
     );
@@ -202,7 +156,15 @@ pub fn on_file_change(vec: Vec<u8>) {
         &mut zip,
         &img,
         152,
-        "apple-icon-152x152.png",
+        "icon-152.png",
+        &now,
+        &pwa_data.pwa_folder,
+    );
+    resize_img_and_add_to_zip(
+        &mut zip,
+        &img,
+        167,
+        "icon-167.png",
         &now,
         &pwa_data.pwa_folder,
     );
@@ -210,7 +172,7 @@ pub fn on_file_change(vec: Vec<u8>) {
         &mut zip,
         &img,
         180,
-        "apple-icon-180x180.png",
+        "icon-180.png",
         &now,
         &pwa_data.pwa_folder,
     );
@@ -218,66 +180,33 @@ pub fn on_file_change(vec: Vec<u8>) {
         &mut zip,
         &img,
         192,
-        "icons-192.png",
+        "icon-192.png",
         &now,
         &pwa_data.pwa_folder,
     );
     resize_img_and_add_to_zip(
         &mut zip,
         &img,
-        192,
-        "maskable_icon.png",
+        196,
+        "icon-196.png",
         &now,
         &pwa_data.pwa_folder,
     );
-
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        32,
-        "favicon-32x32.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        96,
-        "favicon-96x96.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        16,
-        "favicon-16x16.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-    resize_img_and_add_to_zip(
-        &mut zip,
-        &img,
-        144,
-        "ms-icon-144x144.png",
-        &now,
-        &pwa_data.pwa_folder,
-    );
-
-    // for both locations: manifest.json and html header
     resize_img_and_add_to_zip(
         &mut zip,
         &img,
         512,
-        "icons-512.png",
+        "icon-512.png",
         &now,
         &pwa_data.pwa_folder,
     );
+
+    // maskable icon 192
     resize_img_and_add_to_zip(
         &mut zip,
         &img,
         192,
-        "android-icon-192x192.png",
+        "icon-maskable.png",
         &now,
         &pwa_data.pwa_folder,
     );
@@ -376,48 +305,48 @@ pub fn add_manifest_json_to_zip(
     "name": "{}",
     "icons": [
         {{
-            "src": "icons/android-icon-36x36.png",
-            "sizes": "36x36",
-            "type": "image/png",
-            "density": "0.75"
-        }},
-        {{
-            "src": "icons/android-icon-48x48.png",
-            "sizes": "48x48",
-            "type": "image/png",
-            "density": "1.0"
-        }},
-        {{
-            "src": "icons/android-icon-72x72.png",
+            "src": "icons/icon-072.png",
             "sizes": "72x72",
             "type": "image/png",
             "density": "1.5"
         }},
         {{
-            "src": "icons/android-icon-96x96.png",
+            "src": "icons/icon-096.png",
             "sizes": "96x96",
             "type": "image/png",
             "density": "2.0"
         }},
         {{
-            "src": "icons/android-icon-144x144.png",
+            "src": "icons/icon-128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "density": "2.5"
+        }},
+        {{
+            "src": "icons/icon-144.png",
             "sizes": "144x144",
             "type": "image/png",
             "density": "3.0"
         }},
         {{
-            "src": "icons/android-icon-192x192.png",
+            "src": "icons/icon-152.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "density": "3.2"
+        }},
+        {{
+            "src": "icons/icon-192.png",
             "sizes": "192x192",
             "type": "image/png",
             "density": "4.0"
         }},
         {{
-            "src": "icons/icons-512.png",
-            "type": "image/png",
-            "sizes": "512x512"
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"            
         }},
         {{
-            "src": "icons/maskable_icon.png",
+            "src": "icons/icon-maskable.png",
             "sizes": "192x192",
             "type": "image/png",
             "density": "4.0",
@@ -457,49 +386,28 @@ pub fn add_index_html_to_zip(
             <!-- classic header for a web page -->
             <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
             <title>{}</title>
-            <meta name="Description"
-                    content="{}">
-            <meta name="viewport"
-                    content="width = device-width,initial-scale = 1.0" />
-                <head>
-            <!-- A lot of metadata just for PWA -->
+            <meta name="Description" content="{}">
+            <meta name="viewport" content="width = device-width,initial-scale = 1.0" />
+               
+            <!-- favicons generic-->
+            <link rel="icon" type="image/png" href="icons/icon-032.png" sizes="32x32">
+            <link rel="icon" type="image/png" href="icons/icon-128.png" sizes="128x128">
+            <link rel="icon" type="image/png" href="icons/icon-192.png" sizes="192x192">
+            <!-- favicons Android -->
+            <link rel="shortcut icon" href="icons/icon-196.png" sizes="196x196">
+            <!-- favicons iOS -->
+            <link rel="apple-touch-icon" href="icons/icon-152.png" sizes="152x152">
+            <link rel="apple-touch-icon" href="icons/icon-167.png" sizes="167x167">
+            <link rel="apple-touch-icon" href="icons/icon-180.png" sizes="180x180">
+
+            <!-- Metadata for PWA -->
             <link rel="manifest" href="manifest.json">
             <meta name="mobile-web-app-capable" content="yes">
             <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta name="apple-mobile-web-app-status-bar-style"
-                    content="black-translucent" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
             <meta name="theme-color" content="#000000">
-            <link rel="apple-touch-icon" sizes="57x57"
-                    href="icons/apple-icon-57x57.png">
-            <link rel="apple-touch-icon" sizes="60x60"
-                    href="icons/apple-icon-60x60.png">
-            <link rel="apple-touch-icon" sizes="72x72"
-                    href="icons/apple-icon-72x72.png">
-            <link rel="apple-touch-icon" sizes="76x76"
-                    href="icons/apple-icon-76x76.png">
-            <link rel="apple-touch-icon" sizes="114x114"
-                    href="icons/apple-icon-114x114.png">
-            <link rel="apple-touch-icon" sizes="120x120"
-                    href="icons/apple-icon-120x120.png">
-            <link rel="apple-touch-icon" sizes="144x144"
-                    href="icons/apple-icon-144x144.png">
-            <link rel="apple-touch-icon" sizes="152x152"
-                    href="icons/apple-icon-152x152.png">
-            <link rel="apple-touch-icon" sizes="180x180"
-                    href="icons/apple-icon-180x180.png">
-            <link rel="apple-touch-icon" href="icons/icons-192.png">
-            <link rel="icon" type="image/png" sizes="192x192"
-                    href="icons/android-icon-192x192.png">
-            <link rel="icon" type="image/png" sizes="32x32"
-                    href="icons/favicon-32x32.png">
-            <link rel="icon" type="image/png" sizes="96x96"
-                    href="icons/favicon-96x96.png">
-            <link rel="icon" type="image/png" sizes="16x16"
-                    href="icons/favicon-16x16.png">
-            <link rel="icon" type="image/png" href="icons/icons-512.png"
-                    sizes="512x512">
-            <meta name="msapplication-TileColor" content="#000000">
-            <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="icons/icon-120.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
         </head>
     <body>
         <!-- a standard service worker is a must for PWA -->
@@ -550,7 +458,7 @@ pub fn add_service_worker_js_to_zip(
         now.minute()
     );
     unwrap!(zip.write(
-        format!(r##"{{
+        format!(r##"
             'use strict';
 
             // Incrementing VERSION in CACHE_NAME will kick off the 
@@ -621,7 +529,7 @@ pub fn add_service_worker_js_to_zip(
                     return response;
                 }}());
             }});
-}}"##,version_from_date).as_bytes()
+"##,version_from_date).as_bytes()
     ));
 }
 
@@ -638,7 +546,7 @@ pub fn add_start_service_worker_js_to_zip(
     unwrap!(zip.start_file(&format!("{}/start_service_worker.js", pwa_folder), options));
     use std::io::Write;
     unwrap!(zip.write(
-        br##"{
+        br##"
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('service_worker.js').then(function (registration) {
                     console.log('Registration succeeded.');
@@ -657,7 +565,7 @@ pub fn add_start_service_worker_js_to_zip(
                     }
                 });
             });
-}"##
+"##
     ));
 }
 
@@ -689,4 +597,42 @@ pub fn encode_to_png(new_img: image::DynamicImage) -> Vec<u8> {
     let _x = unwrap!(new_img.write_to(&mut vec_u8, image::ImageOutputFormat::Png));
     // return
     vec_u8
+}
+
+// favicon.ico with 16 and 32 icons
+pub fn encode_to_favicon_ico_and_add_to_zip(
+    zip: &mut zip::ZipWriter<std::io::Cursor<&mut [u8]>>,
+    img: &image::DynamicImage,
+    now: &zip::DateTime,
+) {
+    // Create a new, empty icon collection:
+    let mut icon_dir = ico::IconDir::new(ico::ResourceType::Icon);
+
+    // icons need smaller images 32 and 16
+    let new_img = img.resize(32, 32, image::imageops::FilterType::Lanczos3);
+    let vec_u8 = encode_to_png(new_img);
+    // create an IconImage from raw RGBA pixel data from another image library
+    let image = ico::IconImage::from_rgba_data(32, 32, vec_u8);
+    debug_write(&format!(
+        "after ico::IconImage::from_rgba_data(32, 32, vec_u8)"
+    ));
+    icon_dir.add_entry(ico::IconDirEntry::encode(&image).unwrap());
+    debug_write(&format!("after icon_dir.add_entry"));
+
+    let new_img = img.resize(16, 16, image::imageops::FilterType::Lanczos3);
+    let vec_u8 = encode_to_png(new_img);
+    // create an IconImage from raw RGBA pixel data from another image library
+    let image = ico::IconImage::from_rgba_data(16, 16, vec_u8);
+    debug_write(&format!(
+        "after ico::IconImage::from_rgba_data(16, 16, vec_u8)"
+    ));
+    icon_dir.add_entry(ico::IconDirEntry::encode(&image).unwrap());
+    debug_write(&format!("after icon_dir.add_entry"));
+
+    // Finally, add the ICO file to zip:
+    let options = zip::write::FileOptions::default()
+        .compression_method(zip::CompressionMethod::Stored)
+        .last_modified_time(*now);
+    unwrap!(zip.start_file("favicon.ico", options));
+    unwrap!(icon_dir.write(zip));
 }

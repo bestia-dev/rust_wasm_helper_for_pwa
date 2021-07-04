@@ -1,6 +1,6 @@
 [package]
 name = "rust_wasm_helper_for_pwa"
-version = "2021.517.1122"
+version = "2021.704.1257"
 authors = ["Luciano Bestia <Luciano.Bestia@gmail.com>"]
 edition = "2018"
 description = "creates a minimal PWA you can copy to your project"
@@ -21,6 +21,7 @@ wasm-bindgen = { version = "0.2.69", features = ["serde-serialize"] }
 console_error_panic_hook = "0.1.6"
 js-sys = "0.3.46"
 image = "0.23.12"
+ico = "0.1.0"
 
 [dependencies.zip]
 version = "0.5.9"

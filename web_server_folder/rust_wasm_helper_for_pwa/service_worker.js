@@ -4,9 +4,9 @@
 // install event and force previously cached
 // resources to be cached again.
 // but the new service worker will not be activated until all 
-//tabs with this webapp are closed.
+// tabs with this webapp are closed.
 
-const CACHE_NAME = '2021.517.1122';
+const CACHE_NAME = '2021.704.1257';
 
 self.addEventListener('install', event => {
     console.log('event install ', CACHE_NAME);
@@ -14,7 +14,7 @@ self.addEventListener('install', event => {
     self.skipWaiting();
 
     event.waitUntil(
-        caches.open(CACHE_NAME).then(function (cache) {
+        caches.open(CACHE_NAME).then(function(cache) {
             return cache.addAll(
                 [
                     'css/rust_wasm_helper_for_pwa.css',
@@ -51,7 +51,7 @@ self.addEventListener('fetch', event => {
     if (event.request.method != 'GET') return;
 
     // Prevent the default, and handle the request ourselves.
-    event.respondWith(async function () {
+    event.respondWith(async function() {
         // Try to get the response from a cache.
         const cache = await caches.open(CACHE_NAME);
         const cachedResponse = await cache.match(event.request);
