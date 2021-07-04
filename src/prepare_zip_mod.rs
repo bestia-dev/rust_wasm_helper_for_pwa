@@ -100,7 +100,7 @@ pub fn on_file_change(vec: Vec<u8>) {
     let mut zip = create_new_zip(&mut buf);
 
     // favicon.ico with 16 and 32 icons
-    // encode_to_favicon_ico_and_add_to_zip(&mut zip, &img, &now);
+    encode_to_favicon_ico_and_add_to_zip(&mut zip, &img, &now);
 
     // png with various sizes for: favicon png, pwa Android and pwa iOS
     // 32, 72, 96, 120, 128, 144, 152, 167, 180, 192, 196, 512
@@ -607,32 +607,25 @@ pub fn encode_to_favicon_ico_and_add_to_zip(
 ) {
     // Create a new, empty icon collection:
     let mut icon_dir = ico::IconDir::new(ico::ResourceType::Icon);
-
-    // icons need smaller images 32 and 16
-    let new_img = img.resize(32, 32, image::imageops::FilterType::Lanczos3);
-    let vec_u8 = encode_to_png(new_img);
-    // create an IconImage from raw RGBA pixel data from another image library
-    let image = ico::IconImage::from_rgba_data(32, 32, vec_u8);
-    debug_write(&format!(
-        "after ico::IconImage::from_rgba_data(32, 32, vec_u8)"
-    ));
-    icon_dir.add_entry(ico::IconDirEntry::encode(&image).unwrap());
-    debug_write(&format!("after icon_dir.add_entry"));
-
-    let new_img = img.resize(16, 16, image::imageops::FilterType::Lanczos3);
-    let vec_u8 = encode_to_png(new_img);
-    // create an IconImage from raw RGBA pixel data from another image library
-    let image = ico::IconImage::from_rgba_data(16, 16, vec_u8);
-    debug_write(&format!(
-        "after ico::IconImage::from_rgba_data(16, 16, vec_u8)"
-    ));
-    icon_dir.add_entry(ico::IconDirEntry::encode(&image).unwrap());
-    debug_write(&format!("after icon_dir.add_entry"));
+    favicon_add_entry(img, 16, &mut icon_dir);
+    favicon_add_entry(img, 32, &mut icon_dir);
+    favicon_add_entry(img, 48, &mut icon_dir);
 
     // Finally, add the ICO file to zip:
     let options = zip::write::FileOptions::default()
         .compression_method(zip::CompressionMethod::Stored)
         .last_modified_time(*now);
-    unwrap!(zip.start_file("favicon.ico", options));
+    unwrap!(zip.start_file("pwa_folder/favicon.ico", options));
     unwrap!(icon_dir.write(zip));
+}
+
+pub fn favicon_add_entry(img: &image::DynamicImage, size: u32, icon_dir: &mut ico::IconDir) {
+    // icons need smaller images 48, 32 and 16
+    let img_rgba_vec = img
+        .resize(size, size, image::imageops::FilterType::Lanczos3)
+        .into_rgba8()
+        .into_raw();
+    // create an IconImage from raw RGBA pixel data from another image library
+    let icon_image = ico::IconImage::from_rgba_data(size, size, img_rgba_vec);
+    icon_dir.add_entry(ico::IconDirEntry::encode(&icon_image).unwrap());
 }
