@@ -5,7 +5,7 @@
 [comment]: # (lmake_cargo_toml_to_md start)
 
 **creates a minimal PWA you can copy to your project**  
-***[repo](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa_game); version: 2021.704.1429  date: 2021-07-04 authors: Luciano Bestia***  
+***version: 2021.704.1429  date: 2021-07-04 author: [Dev_Bestia](https://bestia.dev) repository: [GitHub](https://github.com/LucianoBestia/)rust_wasm_helper_for_pwa_game***  
 
 [comment]: # (lmake_cargo_toml_to_md end)
 
