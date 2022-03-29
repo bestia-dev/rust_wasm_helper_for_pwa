@@ -5,20 +5,20 @@
 [comment]: # (lmake_cargo_toml_to_md start)
 
 **creates a minimal PWA you can copy to your project**  
-***version: 2021.704.1429  date: 2021-07-04 author: [Dev_Bestia](https://bestia.dev) repository: [GitHub](https://github.com/LucianoBestia/)rust_wasm_helper_for_pwa_game***  
+***version: 2021.704.1429  date: 2021-07-04 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/)rust_wasm_helper_for_pwa_game***  
 
 [comment]: # (lmake_cargo_toml_to_md end)
 
 [comment]: # (lmake_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-742-green.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
-[![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-41-blue.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
-[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-71-purple.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
-[![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
-[![Lines in tests](https://img.shields.io/badge/Lines_in_tests-0-orange.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-742-green.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/)
+[![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-41-blue.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/)
+[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-71-purple.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/)
+[![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/)
+[![Lines in tests](https://img.shields.io/badge/Lines_in_tests-0-orange.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/)
 
 [comment]: # (lmake_lines_of_code end)
 
-[![Licence](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/blob/master/LICENSE) [![Rust](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/workflows/RustAction/badge.svg)](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/)
+[![Licence](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/blob/master/LICENSE) [![Rust](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/)
 
 ## Try it
 
@@ -26,7 +26,7 @@
 The result of this helper (a minimal PWA) looks like this:  
 <https://bestia.dev/pwa_test/>
 
-![screenshot](https://github.com/LucianoBestia/rust_wasm_helper_for_pwa/blob/main/images/helper_for_pwa.jpg?raw=true)
+![screenshot](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/blob/main/images/helper_for_pwa.jpg?raw=true)
 
 ## minimal PWA
 
