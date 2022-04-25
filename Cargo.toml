@@ -2,6 +2,7 @@
 name = "rust_wasm_helper_for_pwa"
 version = "2021.704.1429"
 authors = ["bestia.dev"]
+homepage = "https://bestia.dev"
 edition = "2018"
 description = "creates a minimal PWA you can copy to your project"
 repository = "https://github.com/bestia-dev/rust_wasm_helper_for_pwa_game"
