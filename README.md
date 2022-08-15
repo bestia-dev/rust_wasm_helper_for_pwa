@@ -20,7 +20,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/blob/master/LICENSE)
 [![Rust](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/rust_wasm_helper_for_pwa/)
-![Hits](https://bestia.dev/webpage_hit_counter/get_svg_image/757700228)
+![Hits](https://bestia.dev/webpage_hit_counter/get_svg_image/757700228.svg)
 
 Hashtags: #rustlang #tutorial #pwa  
 My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
