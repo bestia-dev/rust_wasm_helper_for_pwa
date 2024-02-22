@@ -121,7 +121,6 @@ First I tried with an array [0u8; 65_536]. It was too small. But the maximum siz
 So I then used vec![0u8; 2_097_152]; with no errors. I suppose it goes into the heap memory, that is bigger. Just one single big allocation.
 
 ## Open-source and free as a beer
-## Open-source and free as a beer
 
 My open-source projects are free as a beer (MIT license).  
 I just love programming.  
