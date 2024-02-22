@@ -1,5 +1,3 @@
-[//]: # (auto_md_to_doc_comments segment start A)
-
 # rust_wasm_helper_for_pwa
 
 [//]: # (auto_cargo_toml_to_md start)
