@@ -9,15 +9,15 @@ description = "help for prepared make tasks"
 clear = true															   
 script= [
 "clear",
-"echo ",
-"echo COMMON COMMANDS FOR TASK AUTOMATION:",
-"echo    $ clear - clear the screen",
-"echo    $ cargo make - list of common commands for task automation",
-"echo    $ cargo make release - increment version in Cargo.toml and service_worker.js, build release version and copy pkg to web content folder",
-"echo Run the web server in a separate terminal: 'cd ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/;basic-http-server'",
-"echo Run the web app in your browser: 'http://127.0.0.1:4000/rust_wasm_helper_for_pwa/'",
-"echo    $ cargo make publish_to_web - automation for publish",
-"echo "
+"printf ",
+"printf COMMON COMMANDS FOR TASK AUTOMATION:",
+"printf    $ clear - clear the screen",
+"printf    $ cargo make - list of common commands for task automation",
+"printf    $ cargo make release - increment version in Cargo.toml and service_worker.js, build release version and copy pkg to web content folder",
+"printf Run the web server in a separate terminal: 'cd ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/;basic-http-server'",
+"printf Run the web app in your browser: 'http://127.0.0.1:4000/rust_wasm_helper_for_pwa/'",
+"printf    $ cargo make publish_to_web - automation for publish",
+"printf "
 ]
 
 [tasks.release]
@@ -25,20 +25,20 @@ description = "cargo build release"
 clear = true
 script = [
     "clear",
-    "echo $ lmake_version_from_date",
+    "printf $ lmake_version_from_date",
     "lmake_version_from_date",
-    "echo $ lmake_lines_of_code",
+    "printf $ lmake_lines_of_code",
     "lmake_lines_of_code",
-    "echo $ lmake_cargo_toml_to_md",
+    "printf $ lmake_cargo_toml_to_md",
     "lmake_cargo_toml_to_md",
-    "echo $ cargo fmt",
+    "printf $ cargo fmt",
     "cargo fmt",
-    "echo $ wasm-pack build --target web --release",
+    "printf $ wasm-pack build --target web --release",
     "wasm-pack build --target web --release",
-    "echo $ \\rsync -a --delete-after pkg/ web_server_folder/rust_wasm_helper_for_pwa/pkg/",
+    "printf $ \\rsync -a --delete-after pkg/ web_server_folder/rust_wasm_helper_for_pwa/pkg/",
     "\\rsync -a --delete-after pkg/ web_server_folder/rust_wasm_helper_for_pwa/pkg/",
-    "echo Run the web server in a separate terminal: 'cd ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/;basic-http-server'",
-    "echo Run the web app in your browser: 'http://127.0.0.1:4000/rust_wasm_helper_for_pwa/'",
+    "printf Run the web server in a separate terminal: 'cd ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/;basic-http-server'",
+    "printf Run the web app in your browser: 'http://127.0.0.1:4000/rust_wasm_helper_for_pwa/'",
 ]		
 
 [tasks.publish_to_web]
@@ -48,11 +48,11 @@ clear = true
 # backslash is the escape character for all other special characters.
 # and then another time I have to escape the backslash. So 4 backslash for one backslash.
 script = [
-    "echo ",
-    "echo $ git tag -f -a v${CARGO_MAKE_CRATE_VERSION} -m version_${CARGO_MAKE_CRATE_VERSION}",
+    "printf ",
+    "printf $ git tag -f -a v${CARGO_MAKE_CRATE_VERSION} -m version_${CARGO_MAKE_CRATE_VERSION}",
     "git tag -f -a v${CARGO_MAKE_CRATE_VERSION} -m version_${CARGO_MAKE_CRATE_VERSION}",
-    "echo $ rsync -a --info=progress2 --delete-after ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/rust_wasm_helper_for_pwa/ ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
+    "printf $ rsync -a --info=progress2 --delete-after ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/rust_wasm_helper_for_pwa/ ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
     "rsync -a --info=progress2 --delete-after ~/rustprojects/rust_wasm_helper_for_pwa/web_server_folder/rust_wasm_helper_for_pwa/ ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
-    "echo $ rsync -e ssh -a --info=progress2 --delete-after ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/ luciano_bestia@bestia.dev:/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
+    "printf $ rsync -e ssh -a --info=progress2 --delete-after ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/ luciano_bestia@bestia.dev:/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
     "rsync -e ssh -a --info=progress2 --delete-after ~/rustprojects/googlecloud/var/www/bestia.dev/rust_wasm_helper_for_pwa/ luciano_bestia@bestia.dev:/var/www/bestia.dev/rust_wasm_helper_for_pwa/",
 ]
